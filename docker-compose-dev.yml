@@ -1,0 +1,27 @@
+#docker-compose -f docker-compose-dev.yml -p develoment_CQRS_environment up -d
+version: '3.1'
+services :
+  db:
+    image: postgres:10-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: database
+    volumes:
+      - ${PWD}/migrations:/docker-entrypoint-initdb.d
+  admin:
+    image: adminer
+    depends_on: 
+      - db
+    ports:
+      - 5433:8080
+  rabbitmq:
+    image: rabbitmq:3.9.13-management
+    hostname: my-rabbit
+    depends_on:
+      - db
+    ports:
+      - 5672:5672
+      - 15672:15672

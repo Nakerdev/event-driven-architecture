@@ -1,0 +1,16 @@
+version: '3.1'
+services :
+  db:
+    image: postgres:10-alpine
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: CQRS_proof_of_concept
+    volumes:
+      - ${PWD}/migrations:/docker-entrypoint-initdb.d
+  admin:
+    image: adminer
+    depends_on: 
+      - db
+    ports:
+      - 5001:8080
