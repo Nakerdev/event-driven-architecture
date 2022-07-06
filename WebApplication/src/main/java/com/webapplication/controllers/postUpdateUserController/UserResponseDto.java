@@ -2,12 +2,12 @@ package com.webapplication.controllers.postUpdateUserController;
 
 import domain.modules.users.application.updateuser.User;
 
-public class PizzaResponseDto {
+public class UserResponseDto {
     private final String img;
     private final String name;
     private final float price;
 
-    public PizzaResponseDto(final User user) {
+    public UserResponseDto(final User user) {
         this.img = user.getImg();
         this.name = user.getName();
         this.price = user.getPrice();

@@ -23,6 +23,6 @@ public class PostUpdateUserController {
     public ModelAndView Execute(@ModelAttribute("addPizzaRequestDto") final AddUserRequestDto dto) {
         final var request = CreateUserRequest.create(dto);
         final var pizza = this.useCase.Execute(request);
-        return new ModelAndView("backoffice/homeCQRS2/index", "pizzaResponseDto", new PizzaResponseDto(pizza));
+        return new ModelAndView("backoffice/homeCQRS2/index", "pizzaResponseDto", new UserResponseDto(pizza));
     }
 }
