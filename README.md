@@ -12,3 +12,4 @@ docker-compose -f docker-compose-dev.yml -p event_driven_arquitecture up -d
 be better into the controller file? The controller should convert from controller request to command request.
 - Should the command request be coupled to controller request model? Is it break the dependency arrow?
 - Should interface starts with "I"? -> IUserRepository
+- Should events have the "Event" suffix? -> UserCreatedEvent
