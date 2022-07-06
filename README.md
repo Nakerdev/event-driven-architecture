@@ -16,3 +16,6 @@ be better into the controller file? The controller should convert from controlle
 - Should controllers have the http verb as prefix? -> PostUpdateUserController
 - Might we use DDD as folder structure convention in the webapp? 
   - Use users.controllers.api.postUpdateUserController instead of controllers.postUpdateUserController (the domain context (Users) is in the first level)
+- The application does not work for me in runtime, i need to add this line (@ComponentScan(basePackageClasses=GreetingController.class))
+into App configuration file. My machine does not found the home controller.
+- We can move the view template from resources folder near mvc controller changing the thymeleaf configuration: https://www.baeldung.com/spring-thymeleaf-template-directory
