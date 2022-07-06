@@ -4,12 +4,12 @@ import domain.modules.share.domain.bus.event.Event;
 
 import java.io.Serializable;
 
-public class PizzaCreatedEvent implements Serializable, Event {
+public class UserCreatedEvent implements Serializable, Event {
     public String img;
     public String name;
     public String price;
 
-    public PizzaCreatedEvent() {
+    public UserCreatedEvent() {
     }
 
     public String getImg() {

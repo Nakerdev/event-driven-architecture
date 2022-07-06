@@ -23,8 +23,8 @@ public class UpdateUserUseCase {
         return result;
     }
 
-    public PizzaCreatedEvent createPizzaCreatedEvent(final User user) {
-        final var event = new PizzaCreatedEvent();
+    public UserCreatedEvent createPizzaCreatedEvent(final User user) {
+        final var event = new UserCreatedEvent();
         event.name = user.getName();
         event.price = Float.toString(user.getPrice());
         event.img = user.getImg();
