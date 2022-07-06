@@ -1,7 +1,7 @@
 package com.webapplication.controllers.postUpdateUserController;
 
 import domain.modules.users.application.updateuser.AddPizzaRequestDto;
-import domain.modules.users.application.updateuser.CreatePizzaRequest;
+import domain.modules.users.application.updateuser.CreateUserRequest;
 import domain.modules.users.application.updateuser.UpdateUserUseCase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ public class PostUpdateUserController {
 
     @PostMapping("/updateUser")
     public ModelAndView Execute(@ModelAttribute("addPizzaRequestDto") final AddPizzaRequestDto dto) {
-        final var request = CreatePizzaRequest.create(dto);
+        final var request = CreateUserRequest.create(dto);
         final var pizza = this.useCase.Execute(request);
         return new ModelAndView("backoffice/homeCQRS2/index", "pizzaResponseDto", new PizzaResponseDto(pizza));
     }

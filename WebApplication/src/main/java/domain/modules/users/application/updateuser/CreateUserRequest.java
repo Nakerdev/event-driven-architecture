@@ -1,11 +1,11 @@
 package domain.modules.users.application.updateuser;
 
-public class CreatePizzaRequest {
+public class CreateUserRequest {
     private final String img;
     private final String name;
     private final float price;
 
-    public CreatePizzaRequest(final String img, final String name, final float price) {
+    public CreateUserRequest(final String img, final String name, final float price) {
         this.img = img;
         this.name = name;
         this.price = price;
@@ -27,7 +27,7 @@ public class CreatePizzaRequest {
         return Float.parseFloat(price);
     }
 
-    public static CreatePizzaRequest create(final AddPizzaRequestDto dto) {
-        return new CreatePizzaRequest(dto.getImg(), dto.getName(), formatPrice(dto.getPrice()));
+    public static CreateUserRequest create(final AddPizzaRequestDto dto) {
+        return new CreateUserRequest(dto.getImg(), dto.getName(), formatPrice(dto.getPrice()));
     }
 }

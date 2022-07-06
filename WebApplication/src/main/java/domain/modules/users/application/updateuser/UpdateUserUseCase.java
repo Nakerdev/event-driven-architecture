@@ -16,7 +16,7 @@ public class UpdateUserUseCase {
         this.repository = repository;
     }
 
-    public User Execute(final CreatePizzaRequest request) {
+    public User Execute(final CreateUserRequest request) {
         final var pizza = new User(request.getImg(), request.getName(), request.getPrice());
         final var result = this.repository.CreatePizza(pizza);
         this.queue.dispatch(this.createPizzaCreatedEvent(pizza));
