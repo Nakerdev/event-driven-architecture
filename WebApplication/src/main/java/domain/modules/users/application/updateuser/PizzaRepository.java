@@ -16,13 +16,13 @@ public class PizzaRepository implements IPizzaRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public Pizza CreatePizza(final Pizza pizza) {
+    public User CreatePizza(final User user) {
         final var sql = "INSERT INTO pizza2 (name, img, priceInEuros) VALUES (?, ?, ?)";
         try {
-            this.jdbcTemplate.update(sql, pizza.getName(), pizza.getImg(), pizza.getPrice());
+            this.jdbcTemplate.update(sql, user.getName(), user.getImg(), user.getPrice());
         } catch (final DataAccessException ex) {
             return null;
         }
-        return pizza;
+        return user;
     }
 }
