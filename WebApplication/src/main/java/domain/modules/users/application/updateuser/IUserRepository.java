@@ -1,6 +1,6 @@
 package domain.modules.users.application.updateuser;
 
-public interface IPizzaRepository {
+public interface IUserRepository {
 
     User CreatePizza(User user);
 }

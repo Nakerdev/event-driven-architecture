@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 public class UpdateUserUseCase {
 
     private final EventBus queue;
-    private final PizzaRepository repository;
+    private final UserRepository repository;
 
     @Autowired
-    public UpdateUserUseCase(final EventBus queue, final PizzaRepository repository) {
+    public UpdateUserUseCase(final EventBus queue, final UserRepository repository) {
         this.queue = queue;
         this.repository = repository;
     }

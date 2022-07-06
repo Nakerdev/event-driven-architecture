@@ -6,12 +6,12 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class PizzaRepository implements IPizzaRepository {
+public class UserRepository implements IUserRepository {
 
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public PizzaRepository(final JdbcTemplate jdbcTemplate) {
+    public UserRepository(final JdbcTemplate jdbcTemplate) {
 
         this.jdbcTemplate = jdbcTemplate;
     }
