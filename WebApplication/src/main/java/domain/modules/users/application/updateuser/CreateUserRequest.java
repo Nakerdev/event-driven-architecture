@@ -27,7 +27,7 @@ public class CreateUserRequest {
         return Float.parseFloat(price);
     }
 
-    public static CreateUserRequest create(final AddPizzaRequestDto dto) {
+    public static CreateUserRequest create(final AddUserRequestDto dto) {
         return new CreateUserRequest(dto.getImg(), dto.getName(), formatPrice(dto.getPrice()));
     }
 }

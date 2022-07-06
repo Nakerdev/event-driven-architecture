@@ -1,6 +1,6 @@
 package domain.modules.users.application.updateuser;
 
-public class AddPizzaRequestDto {
+public class AddUserRequestDto {
     private String img;
     private String name;
     private String price;
