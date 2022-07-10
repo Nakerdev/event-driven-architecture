@@ -1,4 +1,4 @@
-package domain.modules.users.application.updateuser;
+package com.webapplication.controllers.postUpdateUserController;
 
 public class AddUserRequestDto {
     private String img;
