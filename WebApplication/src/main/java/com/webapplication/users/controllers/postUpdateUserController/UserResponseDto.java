@@ -1,4 +1,4 @@
-package com.webapplication.controllers.postUpdateUserController;
+package com.webapplication.users.controllers.postUpdateUserController;
 
 import domain.modules.users.application.updateuser.User;
 
