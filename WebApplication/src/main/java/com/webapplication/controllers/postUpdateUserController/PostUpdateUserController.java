@@ -19,7 +19,7 @@ public class PostUpdateUserController {
     }
 
     @PostMapping("/updateUser")
-    public ModelAndView Execute(@ModelAttribute("addPizzaRequestDto") final AddUserRequestDto dto) {
+    public ModelAndView execute(@ModelAttribute("addPizzaRequestDto") final AddUserRequestDto dto) {
         final var request = CreateUserRequest.create(dto.getImg(), dto.getName(), dto.getPrice());
         final var pizza = this.useCase.Execute(request);
         return new ModelAndView("backoffice/homeCQRS2/index", "pizzaResponseDto", new UserResponseDto(pizza));
