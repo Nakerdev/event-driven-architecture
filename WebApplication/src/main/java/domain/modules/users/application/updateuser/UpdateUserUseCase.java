@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 public class UpdateUserUseCase {
 
     private final EventBus queue;
-    private final UserRepository repository;
+    private final UserPostgrestRepository repository;
 
     @Autowired
-    public UpdateUserUseCase(final EventBus queue, final UserRepository repository) {
+    public UpdateUserUseCase(final EventBus queue, final UserPostgrestRepository repository) {
         this.queue = queue;
         this.repository = repository;
     }
