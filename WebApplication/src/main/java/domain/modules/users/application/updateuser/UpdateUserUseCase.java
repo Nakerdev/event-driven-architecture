@@ -16,18 +16,15 @@ public class UpdateUserUseCase {
         this.repository = repository;
     }
 
-    public User Execute(final CreateUserRequest request) {
-        final var pizza = new User(request.getImg(), request.getName(), request.getPrice());
-        final var result = this.repository.CreatePizza(pizza);
-        this.queue.dispatch(this.createPizzaCreatedEvent(pizza));
+    public User execute(final UpdateUserRequest request) {
+        final var user = new User(
+                request.getId(),
+                request.getName(),
+                request.getFirstName(),
+                request.getLastName(),
+                request.getAge());
+        final var result = this.repository.updateUser(user);
+        //this.queue.dispatch(this.createEvent(user));
         return result;
-    }
-
-    public UserCreatedEvent createPizzaCreatedEvent(final User user) {
-        final var event = new UserCreatedEvent();
-        event.name = user.getName();
-        event.price = Float.toString(user.getPrice());
-        event.img = user.getImg();
-        return event;
     }
 }

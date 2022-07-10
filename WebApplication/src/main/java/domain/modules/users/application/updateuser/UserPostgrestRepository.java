@@ -16,10 +16,10 @@ public class UserPostgrestRepository implements UserRepository {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public User CreatePizza(final User user) {
+    public User updateUser(final User user) {
         final var sql = "INSERT INTO pizza2 (name, img, priceInEuros) VALUES (?, ?, ?)";
         try {
-            this.jdbcTemplate.update(sql, user.getName(), user.getImg(), user.getPrice());
+            this.jdbcTemplate.update(sql, user.getName(), user.getFirstName(), user.getAge());
         } catch (final DataAccessException ex) {
             return null;
         }

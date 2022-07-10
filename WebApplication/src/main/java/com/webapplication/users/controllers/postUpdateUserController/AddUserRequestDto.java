@@ -1,16 +1,18 @@
 package com.webapplication.users.controllers.postUpdateUserController;
 
 public class AddUserRequestDto {
-    private String img;
+    private String id;
     private String name;
-    private String price;
-
-    public String getImg() {
-        return this.img;
+    private String firstname;
+    private String lastname;
+    private String age;
+    
+    public String getId() {
+        return this.id;
     }
 
-    public void setImg(final String img) {
-        this.img = img;
+    public void setId(final String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -21,11 +23,27 @@ public class AddUserRequestDto {
         this.name = name;
     }
 
-    public String getPrice() {
-        return this.price;
+    public String getFirstname() {
+        return this.firstname;
     }
 
-    public void setPrice(final String price) {
-        this.price = price;
+    public void setFirstname(final String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return this.lastname;
+    }
+
+    public void setLastname(final String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getAge() {
+        return this.age;
+    }
+
+    public void setAge(final String age) {
+        this.age = age;
     }
 }
