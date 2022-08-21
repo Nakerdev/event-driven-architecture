@@ -5,12 +5,13 @@ import domain.modules.users.application.updateuser.User;
 public class UserResponseDto {
 
     private int id;
-    private String name;
+    private final String name;
     private String firstName;
     private String lastName;
     private int age;
 
     public UserResponseDto() {
+        this.name = "jonya";
     }
 
     public UserResponseDto(final User user) {
