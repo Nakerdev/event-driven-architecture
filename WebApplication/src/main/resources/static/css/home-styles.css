@@ -8,3 +8,10 @@ body {
     align-items: center;
     margin-bottom: 3%;
 }
+
+.form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}

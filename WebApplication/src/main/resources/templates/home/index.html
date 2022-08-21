@@ -34,11 +34,12 @@
             <button type="submit">Cambiar perfil</button>
             <div class="fields">
             </div>
+
+            <!--/*@thymesVar id="userResponseDto" type="com.webapplication.users.controllers.postUpdateUserController"*/-->
+            <div th:if="${userResponseDto.name != null}">
+                <h3 th:text="${'El usuario, '+userResponseDto.getName()+', fue actualizado correctamente.'}"></h3>
+            </div>
         </form>
-        <!--/*@thymesVar id="userResponseDto" type="com.webapplication.users.controllers.postUpdateUserController"*/-->
-        <div th:if="${userResponseDto != null}">
-            <h3 th:text="${'El usuario, '+userResponseDto.getName()+', fue actualizado correctamente.'}"></h3>
-        </div>
     </main>
     <footer></footer>
 </body>
