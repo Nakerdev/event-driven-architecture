@@ -10,7 +10,7 @@ services :
       POSTGRES_PASSWORD: root
       POSTGRES_DB: database
     volumes:
-      - ${PWD}/migrations:/docker-entrypoint-initdb.d
+      - "./migrations:/docker-entrypoint-initdb.d"
   admin:
     image: adminer
     depends_on: 
