@@ -6,41 +6,50 @@
     <link th:href="@{/css/home-styles.css}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div>
-        <a th:href="@{/home}">Home</a>
-    </div>
+
     <header class="header">
         <h1>NakedTube</h1>
         <h2>Home</h2>
         <span>Do from naked to nakeds</span>
     </header>
+
     <main>
-        <!--/*@thymesVar id="addUserRequestDto" type="com.webapplication.users.controllers.postUpdateUserController.AddUserRequestDto"*/-->
-        <form class="form"
-              action="#"
-              th:action="@{/updateUser}"
-              th:object="${userResponseDto}"
-              method="post">
-            <h2>¿Quieres actualizar tu información?</h2>
-            <h3>Tu información personal será vendida a mercenario subcoreanos para nuestra riqueza personal, gracias</h3>
-           <label>Nombre: </label>
-            <input type="text"  th:field="*{name}" required/>
-            <label>Primer Apellido: </label>
-            <input type="text" th:field="*{firstName}" required/>
-            <label>Segundo Apellido:</label>
-            <input type="text" th:field="*{lastName}" required/>
-            <label>Edad: </label>
-            <input type="number" th:field="*{age}" required/>
-            <button type="submit">Cambiar perfil</button>
-            <div class="fields">
+
+        <h2>Profile</h2>
+
+        <section>
+            <div>
+                <img th:src="@{/images/profile-picture.jpg}" alt="image" />
             </div>
 
-            <!--/*@thymesVar id="userResponseDto" type="com.webapplication.users.controllers.postUpdateUserController"*/-->
-            <div th:if="${userResponseDto.name != null}">
-                <h3 th:text="${'El usuario, '+userResponseDto.getName()+', fue actualizado correctamente.'}"></h3>
-            </div>
-        </form>
+            <!--/*@thymesVar id="addUserRequestDto" type="com.webapplication.users.controllers.postUpdateUserController.AddUserRequestDto"*/-->
+            <form class="form"
+                  action="#"
+                  th:action="@{/updateUser}"
+                  th:object="${userResponseDto}"
+                  method="post">
+                <label>Nombre: </label>
+                <input type="text"  th:field="*{name}" required/>
+                <label>Primer Apellido: </label>
+                <input type="text" th:field="*{firstName}" required/>
+                <label>Segundo Apellido:</label>
+                <input type="text" th:field="*{lastName}" required/>
+                <label>Edad: </label>
+                <input type="number" th:field="*{age}" required/>
+                <button type="submit">Guardar</button>
+                <div class="fields">
+                </div>
+
+                <!--/*@thymesVar id="userResponseDto" type="com.webapplication.users.controllers.postUpdateUserController"*/-->
+                <div th:if="${userResponseDto.name != null}">
+                    <h3 th:text="${'El usuario, '+userResponseDto.getName()+', fue actualizado correctamente.'}"></h3>
+                </div>
+            </form>
+
+        </section>
+
+        <p class="fine-print">Tu información personal será vendida a mercenario surcoreanos para nuestra riqueza personal, gracias.</p>
+
     </main>
-    <footer></footer>
 </body>
 </html>
