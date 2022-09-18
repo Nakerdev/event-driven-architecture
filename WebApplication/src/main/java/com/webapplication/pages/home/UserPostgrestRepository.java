@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Map;
 import java.util.Optional;
 
-@Repository
+//@Repository
 public class UserPostgrestRepository implements UserRepository {
 
     private final JdbcTemplate jdbcTemplate;
@@ -23,7 +23,7 @@ public class UserPostgrestRepository implements UserRepository {
         final var sql = "SELECT * FROM Users WHERE id = ?";
         try {
             return jdbcTemplate
-                .queryForList(sql)
+                .queryForList(sql, id)
                 .stream()
                 .map((row) -> buildUserDto(row))
                 .toList()

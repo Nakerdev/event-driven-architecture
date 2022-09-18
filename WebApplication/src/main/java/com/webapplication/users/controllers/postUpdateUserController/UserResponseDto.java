@@ -1,10 +1,7 @@
 package com.webapplication.users.controllers.postUpdateUserController;
 
-import domain.modules.users.application.updateuser.User;
-
 public class UserResponseDto {
 
-    private int id;
     private String name;
     private String firstName;
     private String lastName;
@@ -13,16 +10,11 @@ public class UserResponseDto {
     public UserResponseDto() {
     }
 
-    public UserResponseDto(final User user) {
-        this.id = user.getId();
-        this.name = user.getName();
-        this.firstName = user.getFirstName();
-        this.lastName = user.getLastName();
-        this.age = user.getAge();
-    }
-
-    public int getId() {
-        return this.id;
+    public UserResponseDto(String name, String firstName, String lastName, int age) {
+        this.name = name;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
     }
 
     public String getName() {

@@ -2,6 +2,7 @@ package com.webapplication.users.controllers.postUpdateUserController;
 
 import domain.modules.users.application.updateuser.UpdateUserRequest;
 import domain.modules.users.application.updateuser.UpdateUserUseCase;
+import domain.modules.users.application.updateuser.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +16,7 @@ public class PostUpdateUserController {
 
     @Autowired
     public PostUpdateUserController(final UpdateUserUseCase command) {
+
         this.useCase = command;
     }
 
@@ -28,6 +30,14 @@ public class PostUpdateUserController {
                 dto.getAge()
         );
         final var user = this.useCase.execute(request);
-        return new ModelAndView("/home/index", "userResponseDto", new UserResponseDto(user));
+        return new ModelAndView("/home/index", "userResponseDto", buildUserResponseDto(user));
+    }
+
+    private UserResponseDto buildUserResponseDto(User user) {
+        return new UserResponseDto(
+                user.getName(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getAge());
     }
 }

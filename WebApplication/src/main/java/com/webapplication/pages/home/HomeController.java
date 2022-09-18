@@ -10,13 +10,28 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 
+    private UserRepository userRepository;
+
     @Autowired
-    public HomeController() {
+    public HomeController(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @GetMapping(value = {"/", "home"})
     public ModelAndView home(final Model model) {
-        return new ModelAndView("/home/index", "userResponseDto", new UserResponseDto());
+        final var user = userRepository.SearchByUserId(1);
+        if (user.isPresent()) {
+            return new ModelAndView("/home/index", "userResponseDto",buildUserResponseDto(user.get()));
+        } else {
+            throw new UnsupportedOperationException();
+        }
     }
 
+    private UserResponseDto buildUserResponseDto(UserDto user) {
+        return new UserResponseDto(
+                user.getName(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getAge());
+    }
 }

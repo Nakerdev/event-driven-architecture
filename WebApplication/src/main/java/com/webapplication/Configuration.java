@@ -47,4 +47,8 @@ public class Configuration {
         return new UserPostgrestRepository(jdbcTemplate);
     }
 
+    @Bean
+    public com.webapplication.pages.home.UserRepository homePageUserPostgrestRepository(JdbcTemplate jdbcTemplate) {
+        return new com.webapplication.pages.home.UserPostgrestRepository(jdbcTemplate);
+    }
 }
