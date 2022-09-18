@@ -3,12 +3,10 @@ package com.webapplication.pages.home;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 import java.util.Optional;
 
-//@Repository
 public class UserPostgrestRepository implements UserRepository {
 
     private final JdbcTemplate jdbcTemplate;
