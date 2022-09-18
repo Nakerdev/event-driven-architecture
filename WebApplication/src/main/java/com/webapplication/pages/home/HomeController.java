@@ -2,6 +2,7 @@ package com.webapplication.pages.home;
 
 import com.webapplication.users.controllers.postUpdateUserController.UserResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,11 +20,11 @@ public class HomeController {
 
     @GetMapping(value = {"/", "home"})
     public ModelAndView home(final Model model) {
-        final var user = userRepository.SearchByUserId(1);
+        final var user = userRepository.SearchByUserId(2);
         if (user.isPresent()) {
             return new ModelAndView("/home/index", "userResponseDto",buildUserResponseDto(user.get()));
         } else {
-            throw new UnsupportedOperationException();
+            return new ModelAndView("/notFound/index", HttpStatus.NOT_FOUND);
         }
     }
 
