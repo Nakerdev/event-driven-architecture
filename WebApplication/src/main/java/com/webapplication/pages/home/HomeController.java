@@ -20,7 +20,7 @@ public class HomeController {
 
     @GetMapping(value = {"/", "home"})
     public ModelAndView home(final Model model) {
-        final var user = userRepository.SearchByUserId(2);
+        final var user = userRepository.SearchByUserId(1);
         if (user.isPresent()) {
             return new ModelAndView("/home/index", "userResponseDto",buildUserResponseDto(user.get()));
         } else {
