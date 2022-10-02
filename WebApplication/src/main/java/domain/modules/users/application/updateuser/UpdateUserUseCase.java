@@ -24,7 +24,17 @@ public class UpdateUserUseCase {
                 request.getLastName(),
                 request.getAge());
         final var result = this.repository.updateUser(user);
-        //this.queue.dispatch(this.createEvent(user));
+        this.queue.dispatch(this.createEvent(user));
         return result;
+    }
+
+    private UserUpdatedEvent createEvent(final User user) {
+        return new UserUpdatedEvent(
+                user.getId(),
+                user.getName(),
+                user.getFirstName(),
+                user.getLastName(),
+                user.getAge()
+        );
     }
 }
